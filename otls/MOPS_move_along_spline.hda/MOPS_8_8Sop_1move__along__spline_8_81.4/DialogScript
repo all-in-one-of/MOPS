@@ -397,12 +397,31 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "goal_type"
+            label   "Goal Type"
+            type    ordinal
+            default { "0" }
+            menu {
+                "goalu" "Goal U"
+                "dist"  "Distance"
+            }
+        }
+        parm {
             name    "goal"
             label   "Goal U"
             type    float
             default { "0" }
-            hidewhen "{ mode != 0 }"
+            hidewhen "{ mode != 0 } { goal_type != goalu }"
             range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "goal_dist"
+            label   "Goal Dist"
+            type    float
+            default { "0" }
+            hidewhen "{ mode != 0 } { goal_type != dist }"
+            range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
